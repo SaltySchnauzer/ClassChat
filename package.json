@@ -4,6 +4,7 @@
   "description": "The second version of twonote. Hopefully it won't fail this time.",
   "main": "index.js",
   "scripts": {
+    "setup": "concurrently \"npm i\" \"npm i --prefix model\" \"npm i --prefix controller\" \"npm i --prefix view\" \"npm i --prefix types\"",
     "prestart": "echo \"you guys like sweet potaters?\"",
     "shipping": "cd controller && nodemon -w dist dist/routes.js",
     "precompile": "echo \"Starting compilation build...\"",

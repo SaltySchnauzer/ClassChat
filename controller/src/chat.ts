@@ -2,14 +2,10 @@ import ws from "ws";
 import { ChatSocketMessage, ChatMessage } from "@chat/types";
 import { ReturnMessages, AddMessages } from "@chat/model";
 
+//needs to be reworked to handle multiple rooms - significant oversight on my part
 export class Chat {
   wss: ws.Server = new ws.Server({ port: 3694 });
-  messages: ChatMessage[] = [
-    {
-      sender: "test man",
-      content: "you are dumb, and another thing, you are ugly",
-    },
-  ];
+  messages: ChatMessage[] = [];
   connected: ws[] = [];
   userCounter: number = 0;
   constructor() {
@@ -27,6 +23,7 @@ export class Chat {
       let counter = this.userCounter;
       let anonUsername = "";
       this.userCounter++;
+
       //starts interval to send a pong
       //if no pong, kills interval and client with a vicious knife
       //think julius ceasar but an angry sysadmin instead.
@@ -84,13 +81,14 @@ export class Chat {
             }
             //AddMessages(message.chatID, [msg]);
             this.messages.push(msg);
+            AddMessages(message.chatID, [msg]);
 
             //update all connected users with message
             this.connected.forEach((value) => {
               value.send(
                 JSON.stringify({
-                  type: "loadmsg",
-                  content: [msg],
+                  type: "updatemsg",
+                  content: msg,
                 } as ChatSocketMessage)
               );
             });

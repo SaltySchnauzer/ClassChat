@@ -8,7 +8,7 @@ export default function Message({
   content: ChatMessage;
 }): JSX.Element {
   let css = style({ padding: "0.5em", borderTop: "0.25em dotted #0A0A0C" });
-  let name = style({ overflow: "hidden", height: "1em" });
+  let name = style({ overflowX: "hidden", height: "1em" });
   return (
     <div className={css}>
       <div className={name}>{content.sender}</div>

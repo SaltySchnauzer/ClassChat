@@ -31,6 +31,13 @@ export default function Sender({
     position: "sticky",
     bottom: 0,
   });
+  let inputBox = {
+    borderRadius: "1em",
+    padding: "0.5em",
+    backgroundColor: "#36393F",
+    border: 0,
+    color: "#FFFFFF",
+  };
   //put forms here dumbass
   return (
     <div className={css}>
@@ -43,9 +50,10 @@ export default function Sender({
           id="message"
           name="message"
           type="text"
+          placeholder="Enter a message..."
           onChange={formik.handleChange}
           value={formik.values.message}
-          className={style({ flex: "1 0" })}
+          className={style(inputBox, { width: "100%" })}
         />
         <button type="submit">↲</button>
       </form>
@@ -56,8 +64,10 @@ export default function Sender({
           id="name"
           name="name"
           type="text"
+          placeholder="Enter a name..."
           onChange={nameSet.handleChange}
           value={nameSet.values.name}
+          className={style(inputBox, { width: "30%" })}
         />
         <button type="submit">↲</button>
       </form>

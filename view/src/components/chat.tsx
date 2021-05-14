@@ -17,6 +17,9 @@ export default function Chat({ chatID }: { chatID: string }): JSX.Element {
     const message = JSON.parse(ev.data) as ChatSocketMessage;
     switch (message.type) {
       case "loadmsg":
+        setMessages(message.content);
+        break;
+      case "updatemsg":
         setMessages(messages.concat(message.content));
         break;
       case "sendmsg":

@@ -6,7 +6,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "module": "commonjs",
-  "type":"commonjs",
+  "type": "commonjs",
   "dependencies": {
     "@chat/types": "file:../types",
     "@types/mongodb": "^3.6.12",

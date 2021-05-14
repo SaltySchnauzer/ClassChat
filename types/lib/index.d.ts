@@ -12,6 +12,10 @@ export declare type ChatSocketMessage = {
     content: ChatMessage[];
     chatID: string;
 } | {
+    type: "updatemsg";
+    content: ChatMessage;
+    chatID: string;
+} | {
     type: "ping";
 } | {
     type: "anonname";
