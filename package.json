@@ -1,0 +1,28 @@
+{
+  "name": "sweet_potato",
+  "version": "0.0.0",
+  "description": "The second version of twonote. Hopefully it won't fail this time.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "echo \"you guys like sweet potaters?\"",
+    "shipping": "cd controller && nodemon -w dist dist/routes.js",
+    "precompile": "echo \"Starting compilation build...\"",
+    "compile": "concurrently \"npm:*:compile\"",
+    "view:compile": "cd view && npx vite build",
+    "controller:compile": "cd controller && tsc",
+    "start": "concurrently \"npm:*:start\"",
+    "view:start": "cd view && npx vite",
+    "controller:start": "cd controller && concurrently \"tsc -w\" \"nodemon -w dist dist/routes.js\"",
+    "model:start": "cd model && npx tsc -w",
+    "types:start": "cd types && npx tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Salty Schnauzer",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  }
+}

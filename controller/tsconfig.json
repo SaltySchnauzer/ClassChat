@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "./dist",
+        "rootDir": "./src"
+    },
+    "extends": "..",
+    "target": "esnext",
+    "module": "commonjs"
+}
